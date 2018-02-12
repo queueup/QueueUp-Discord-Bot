@@ -59,6 +59,8 @@ export const embedHelp = () => new RichEmbed({
       name: 'Looking for game',
       value: `
 \`/qup lfg\`: Adds you to the queue if you already linked your Discord to your summoner name (read config section) or shows available summoners if you're already in the queue
+
+\`/qup lfg <region>\`: Lists all lfg of region (requires \`/qup lfg\` first)
 `
     },
     {
