@@ -81,26 +81,27 @@ Oh, last thing, we also have our own Discord server, so if you want to help us i
     )
   }
 
+  sendLfg() {
+    getLfg({ region: this.message.splitContent[2]})
+      .then(({ data }) => {
+        this.message.channel.send(`${data.length} summoners available`, embedLfg(data))
+        this.message.channel.stopTyping()
+      })
+      .catch(r => {
+        console.warn(r)
+        this.message.channel.send('Error')
+        this.message.channel.stopTyping()
+      })
+  }
+
   lfgHandler() {
-    if (this.message.splitContent.length < 3) {
-      return createLfgByDiscord(this.message.authorTag)
-        .then(() => {
-          this.message.channel.send('You\'re in the queue')
-          this.message.channel.stopTyping()
-        })
-        .catch(() => {
-          getLfg({ region: this.message.splitContent[2]})
-            .then(({ data }) => {
-              this.message.channel.send(`${data.length} summoners available`, embedLfg(data))
-              this.message.channel.stopTyping()
-            })
-            .catch(r => {
-              console.warn(r)
-              this.message.channel.send('Error')
-              this.message.channel.stopTyping()
-            })
-        })
-    }
+    return createLfgByDiscord(this.message.authorTag)
+      .then(() => {
+        this.message.channel.send('You\'re in the queue')
+        this.sendLfg()
+        this.message.channel.stopTyping()
+      })
+      .catch(() => this.sendLfg())
   }
 
   meHandler() {
