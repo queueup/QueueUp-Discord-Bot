@@ -113,7 +113,7 @@ Oh, last thing, we also have our own Discord server, so if you want to help us i
           })
           .catch(r => {
             console.warn(r)
-            this.message.author.send(`No summoner found, please sign up on QueueUp and add \`${this.message.authorTag}\` to your profile Discord: http://queueup.gg`)
+            this.message.author.send(`No summoner found, please sign up on QueueUp and add \`${this.message.authorTag}\` to your profile Discord: http://queueup.gg or use \`/qup config\``)
           })
       default:
         return getProfileByDiscord(this.message.authorTag)
