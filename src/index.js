@@ -19,6 +19,6 @@ You can start using me by typing \`/qup help\`
 `)))
 
 client.on('message', message => 
-  message.channel.name === 'queueup-bot' && message.content.startsWith('/qup') && new QueueUpHandler({ message }))
+  message.content.startsWith('/qup') && new QueueUpHandler({ message }))
 
 client.login(process.env.DISCORD_TOKEN)

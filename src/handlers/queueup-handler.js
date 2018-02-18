@@ -61,7 +61,7 @@ export default class QueueUpHandler extends RootHandler {
 
   creditsHandler() {
     this.message.channel.stopTyping()
-    this.message.author.send(
+    this.message.channel.send(
       `
 Hey mate ! :wave:
 Here are some places you can find us on. Any like/tweet/share is a huge support for us, so we'd love to see you doing so ! :heart:
@@ -71,7 +71,7 @@ Here are some places you can find us on. Any like/tweet/share is a huge support 
 
   helpHandler() {
     this.message.channel.stopTyping()
-    this.message.author.send(
+    this.message.channel.send(
       `
 Hey mate ! :wave:
 I just heard you needed some help, so here it is ! Don't forget that all data is provided by http://queueup.gg, so if you want to improve your profile, go there and take a look !
@@ -110,20 +110,20 @@ Oh, last thing, we also have our own Discord server, so if you want to help us i
       case 'update':
         return updateProfileByDiscord(this.message.authorTag)
           .then(({ data }) => {
-            this.message.author.send('Here is your updated profile. You can update other informations on the QueueUp mobile app if needed: http://queueup.gg/', embedProfile(data))
+            this.message.channel.send('Here is your updated profile. You can update other informations on the QueueUp mobile app if needed: http://queueup.gg/', embedProfile(data))
           })
           .catch(r => {
             console.warn(r)
-            this.message.author.send(`No summoner found, please sign up on QueueUp and add \`${this.message.authorTag}\` to your profile Discord: http://queueup.gg or use \`/qup config\``)
+            this.message.channel.send(`No summoner found, please sign up on QueueUp and add \`${this.message.authorTag}\` to your profile Discord: http://queueup.gg or use \`/qup config\``)
           })
       default:
         return getProfileByDiscord(this.message.authorTag)
           .then(({ data }) => {
-            this.message.author.send('Here is your profile, you can update your ranked data with `/qup me update` or update other informations on the QueueUp mobile app if needed: http://queueup.gg/', embedProfile(data))
+            this.message.channel.send('Here is your profile, you can update your ranked data with `/qup me update` or update other informations on the QueueUp mobile app if needed: http://queueup.gg/', embedProfile(data))
           })
           .catch(r => {
             console.warn(r)
-            this.message.author.send(`No summoner found, please sign up on QueueUp and add \`${this.message.authorTag}\` to your profile Discord: http://queueup.gg`)
+            this.message.channel.send(`No summoner found, please sign up on QueueUp and add \`${this.message.authorTag}\` to your profile Discord: http://queueup.gg`)
           })
     }
   }
