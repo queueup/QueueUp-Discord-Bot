@@ -15,15 +15,8 @@ export default class BugReportHandler extends Command {
   onReady() {}
 
   onMessage(message) {
-    const {
-      attachments,
-      author,
-      content,
-      guild,
-    } = message
-    console.log(content)
+    const { content } = message
     if (this.isHandledCommand(content, 'games')) {
-      console.log('is ok')
       message.channel.send('', new RichEmbed({
         fields: games.map(game => ({
           name: game.label,
