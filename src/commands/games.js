@@ -2,7 +2,7 @@ import { RichEmbed } from 'discord.js'
 import games from '../constants/games.json'
 import Command from '../utils/command'
 
-export default class BugReportHandler extends Command {
+export default class GamesCommand extends Command {
   constructor(client) {
     super(client)
 
@@ -15,9 +15,9 @@ export default class BugReportHandler extends Command {
   onReady() {}
 
   onMessage(message) {
-    const { content } = message
+    const { channel, content } = message
     if (this.isHandledCommand(content, 'games')) {
-      message.channel.send('', new RichEmbed({
+      channel.send('', new RichEmbed({
         fields: games.map(game => ({
           name: game.label,
           value: game.key,
