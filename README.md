@@ -8,24 +8,9 @@
 
 ### Credits
 
-`/qup credits`: Learn more about us
-
-### Config
-
-`/qup config <region> <summoner>`: Links your Discord to your League of Legends summoner
+`/qup more`: Learn more about us
 
 ### Looking for game
 
-`/qup lfg`: Adds you to the queue if you already linked your Discord to your summoner name (read config section) or shows available summoners if you're already in the queue
-
-### Your profile
-
-:warning: Requires a QueueUp account! :warning:
-
-`/qup me`: Sends you your profile
-
-`/qup me update`: Updates your profile's ranked data
-
-### Other profiles
-
-`/qup profile <region> <summoner>`: Shows the selected summoner
+`/qup lfg <game>`: Lists all the players willing to play that game in the last 5 minutes
+`/qup lfg <game> <in-game-name> <region|optional>`: Add yourself to the queue for 5 minutes. We will give other players your game informations as well as your DiscordTag so they can add you

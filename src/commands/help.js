@@ -22,12 +22,12 @@ export default class HelpCommand extends Command {
           description: `Hi ${author.username} :wave:,\nHere are all the commands you can use with me!`,
           fields: [
             {
-              name: 'Listing all the games',
+              name: 'Listing all the games.',
               value: '`/qup games`',
             },
             {
               name: 'Listing players',
-              value: '`/qup lfg <game>`: Lists all the players willing to play that game in the last 5 minutes',
+              value: '`/qup lfg <game>`: Lists all the players willing to play that game in the last 5 minutes.',
             },
             {
               name: 'Subscribing',
