@@ -1,24 +1,19 @@
-import Discord from 'discord.js'
 import dotenv from 'dotenv'
-import QueueUpHandler from './handlers/queueup-handler'
 
-const client = new Discord.Client()
+import GamesCommand from './commands/games'
+import HelpCommand from './commands/help'
+import LfgCommand from './commands/lfg'
+import MoreCommand from './commands/more'
+
+import DiscordBot from './discord-bot'
 
 dotenv.config()
 
+const bot = new DiscordBot()
 
+new GamesCommand(bot.client)
+new HelpCommand(bot.client)
+new LfgCommand(bot.client)
+new MoreCommand(bot.client)
 
-client.on('ready', () =>
-  client.user.setActivity('queueup.gg', {type: 'PLAYING'}))
-
-client.on('guildCreate', guild => 
-  guild.createChannel('queueup-bot')
-    .then(channel => channel.send(`
-Hi ! :wave:
-You can start using me by typing \`/qup help\`
-`)))
-
-client.on('message', message => 
-  message.content.startsWith('/qup') && new QueueUpHandler({ message }))
-
-client.login(process.env.DISCORD_TOKEN)
+bot.start()

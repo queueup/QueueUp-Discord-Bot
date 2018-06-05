@@ -1,0 +1,22 @@
+[
+  {
+    "key": "csgo",
+    "label": "Counter Strike: Global Offensive"
+  },
+  {
+    "key": "fn",
+    "label": "Fortnite"
+  },
+  {
+    "key": "lol",
+    "label": "League of Legends"
+  },
+  {
+    "key": "ow",
+    "label": "Overwatch"
+  },
+  {
+    "key": "pubg",
+    "label": "PlayerUnknown's Battleground"
+  }
+]
