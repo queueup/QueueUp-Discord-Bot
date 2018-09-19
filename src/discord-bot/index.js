@@ -13,6 +13,6 @@ export default class DiscordBot {
   }
 
   onReady() {
-    this.client.user.setActivity('discord.gg')
+    this.client.user.setActivity('queueup.gg')
   }
 }
