@@ -18,5 +18,9 @@
   {
     "key": "pubg",
     "label": "PlayerUnknown's Battleground"
+  },
+  {
+    "key": "rl",
+    "label": "Rocket League"
   }
 ]
